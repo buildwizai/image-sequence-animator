@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Import jest-dom matchers for type recognition
 import ImageSequenceAnimator, { ImageSequenceAnimatorProps } from '../src/ImageSequenceAnimator'; // Adjust path as needed

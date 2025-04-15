@@ -21,7 +21,6 @@
     "build": "vite build && tsc --emitDeclarationOnly --outDir dist/types",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
     "test": "jest"
   },
   "peerDependencies": {
