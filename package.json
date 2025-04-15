@@ -77,13 +77,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/image-sequence-animator.git"
+    "url": "git+https://github.com/buildwizai/image-sequence-animator.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/your-username/image-sequence-animator/issues"
+    "url": "https://github.com/buildwizai/image-sequence-animator/issues"
   },
-  "homepage": "https://github.com/your-username/image-sequence-animator#readme",
+  "homepage": "https://github.com/buildwizai/image-sequence-animator#readme",
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
