@@ -1,7 +1,7 @@
 # Image Sequence Animator
 
 [![npm version](https://badge.fury.io/js/image-sequence-animator.svg)](https://badge.fury.io/js/image-sequence-animator)
-[![CI Status](https://github.com/your-username/image-sequence-animator/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/image-sequence-animator/actions/workflows/ci.yml)
+[![CI Status](https://github.com/buildwizai/image-sequence-animator/actions/workflows/ci.yml/badge.svg)](https://github.com/buildwizai/image-sequence-animator/actions/workflows/ci.yml)
 [![npm downloads](https://img.shields.io/npm/dm/image-sequence-animator.svg)](https://www.npmjs.com/package/image-sequence-animator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -120,7 +120,7 @@ This will create a build in the `dist` directory that's configured for GitHub Pa
 The GitHub Actions workflow is set up to automatically deploy the demo to GitHub Pages whenever changes are pushed to the main branch. The demo will be available at:
 
 ```
-https://[your-username].github.io/image-sequence-animator/
+https://[buildwizai].github.io/image-sequence-animator/
 ```
 
 Make sure to enable GitHub Pages in your repository settings and set the source to the `gh-pages` branch.
