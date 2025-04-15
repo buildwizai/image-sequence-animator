@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ] # Or your default branch
 
+# Add permissions section to give workflow write access to repository contents
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
