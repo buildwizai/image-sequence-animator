@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc --emitDeclarationOnly --outDir dist/types",
+    "build": "vite build",
+    "build:github": "vite build --mode github",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest"

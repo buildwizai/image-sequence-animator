@@ -38,6 +38,11 @@ jobs:
     - name: Build Library
       run: npm run build
 
+    # Build for GitHub Pages with our new script
+    - name: Build GitHub Pages Demo
+      if: success() && github.ref == 'refs/heads/main' # Only run on main branch
+      run: npm run build:github
+
     # Optional: Upload test results artifact (useful for debugging)
     - name: Upload test results
       if: always() # Run even if previous steps fail
@@ -56,9 +61,9 @@ jobs:
         path: dist/
         retention-days: 7
 
-    # Add steps for deploying Storybook/demo site here if needed (e.g., using GitHub Pages actions)
+    # Deploy GitHub Pages demo site
     - name: Deploy to GitHub Pages
-      if: success() # Only deploy if the build succeeds
+      if: success() && github.ref == 'refs/heads/main' # Only deploy if build succeeds and on main branch
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
