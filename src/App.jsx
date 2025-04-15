@@ -3,6 +3,8 @@ import { marked } from 'marked';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ImageSequenceAnimator from './ImageSequenceAnimator';
+import logoSvg from './assets/logo/logo.svg';
+import iconSvg from './assets/logo/icon.svg';
 
 function App() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -166,6 +168,9 @@ Below is a basic implementation example:
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 font-sans text-gray-800">
       <header className="text-center mb-8">
+        <div className="flex justify-center mb-4">
+          <img src={logoSvg} alt="Image Sequence Animator Logo" className="h-24" />
+        </div>
         <h1 className="text-4xl font-bold mb-2">Image Sequence Animator</h1>
         <p className="text-xl text-gray-600 mb-4">
           A powerful React component for animating sequences of images with fine-grained control
@@ -515,6 +520,9 @@ Below is a basic implementation example:
       </main>
 
       <footer className="mt-12 pt-4 border-t border-gray-200 text-center">
+        <div className="flex justify-center items-center mb-4">
+          <img src={iconSvg} alt="Image Sequence Animator Icon" className="h-10" />
+        </div>
         <p className="flex justify-center gap-2 items-center">
           <a href="https://github.com/buildwizai/image-sequence-animator" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
             GitHub Repository

@@ -1,6 +1,6 @@
 {
   "name": "image-sequence-animator",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A React component to animate a sequence of images like a video.",
   "type": "module",
   "main": "./dist/image-sequence-animator.cjs.js",
@@ -30,11 +30,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
-    "@storybook/addon-essentials": "^8.6.12",
-    "@storybook/addon-interactions": "^8.6.12",
-    "@storybook/addon-onboarding": "^8.6.12",
-    "@storybook/blocks": "^8.6.12",
-    "@storybook/test": "^8.6.12",
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/vite": "^4.1.4",
     "@testing-library/jest-dom": "^6.6.3",
@@ -50,7 +45,6 @@
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "eslint-plugin-storybook": "^0.12.0",
     "globals": "^15.15.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -58,7 +52,6 @@
     "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "storybook": "^8.6.12",
     "tailwindcss": "^4.1.4",
     "ts-jest": "^29.3.2",
     "typescript": "^5.8.3",
@@ -83,14 +76,9 @@
   "bugs": {
     "url": "https://github.com/buildwizai/image-sequence-animator/issues"
   },
-  "homepage": "https://github.com/buildwizai/image-sequence-animator#readme",
+  "homepage": "https://buildwizai.github.io/image-sequence-animator/",
   "eslintConfig": {
     "extends": [
-      "plugin:storybook/recommended"
     ]
-  },
-  "dependencies": {
-    "marked": "^15.0.8",
-    "react-syntax-highlighter": "^15.6.1"
   }
 }
