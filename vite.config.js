@@ -11,7 +11,7 @@ export default defineConfig({
   ],
   // Specify entry point for development
   root: '.',
-  base: './',
+  base: './image-sequence-animator',
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
