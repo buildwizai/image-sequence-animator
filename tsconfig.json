@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Use latest ECMAScript features
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Include DOM and latest ES features
+    "allowJs": false, // Disallow JavaScript files
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "strict": true, // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "module": "ESNext", // Specify module code generation
+    "moduleResolution": "Bundler", // Use bundler-specific module resolution (Vite recommendation)
+    "resolveJsonModule": true, // Include modules imported with .json extension
+    "isolatedModules": true, // Ensure each file can be safely transpiled without relying on other imports
+    "noEmit": true, // Do not emit output files (Vite handles this), used for type checking
+    "jsx": "react-jsx", // Use new JSX transform
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Library-specific options */
+    "declaration": true, // Generate .d.ts files (handled by build script)
+    "declarationDir": "dist/types", // Output directory for declaration files (handled by build script)
+    "sourceMap": true, // Generate sourcemaps (handled by Vite)
+    "outDir": "dist" // Output directory (handled by Vite)
+  },
+  "include": [
+    "src",
+    "tests", // Include test files
+    "stories", // Include story files
+    "jest.config.cjs", // Include Jest config if needed for type checking
+    "__mocks__" // Include mocks directory
+    // Add other top-level TS/JS files if necessary
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }] // Reference the node config
+}
