@@ -6,6 +6,14 @@ import ImageSequenceAnimator from './ImageSequenceAnimator';
 
 function App() {
   const [tabIndex, setTabIndex] = useState(0);
+  const [copiedText, setCopiedText] = useState('');
+
+  // Function to handle copying text
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(text);
+    setTimeout(() => setCopiedText(''), 2000);
+  };
 
   // Sample images for demo
   const imgURLs = Array.from(
@@ -20,18 +28,21 @@ function App() {
     { frameRate: 3, loop: false, title: 'Slow Animation, No Loop (3 FPS)' }
   ];
 
+  // Installation commands
+  const npmInstall = `npm install image-sequence-animator`;
+  const yarnInstall = `yarn add image-sequence-animator`;
+  const pnpmInstall = `pnpm add image-sequence-animator`;
+
   // Code examples
   const basicExample = `import React from 'react';
 import ImageSequenceAnimator from 'image-sequence-animator';
 
 const MyComponent = () => {
-  // Array of image URLs
-  const imageUrls = [
-    'https://example.com/frame1.jpg',
-    'https://example.com/frame2.jpg',
-    'https://example.com/frame3.jpg',
-    // ... more frames
-  ];
+  // Array of image URLs with random images from Lorem Picsum
+  const imageUrls = Array.from(
+    { length: 20 },
+    (_, i) => \`https://picsum.photos/800/600?random=\${i + 1}\`
+  );
 
   return (
     <ImageSequenceAnimator
@@ -47,10 +58,10 @@ const MyComponent = () => {
 import ImageSequenceAnimator from 'image-sequence-animator';
 
 const ProductViewer = () => {
-  // Generate frames from a product rotation sequence
+  // Generate frames from random images for a 360° view effect
   const imageUrls = Array.from(
     { length: 36 },
-    (_, i) => \`/product-views/product_\${String(i + 1).padStart(2, '0')}.jpg\`
+    (_, i) => \`https://picsum.photos/800/600?random=\${i + 1}\`
   );
 
   return (
@@ -73,16 +84,6 @@ const ProductViewer = () => {
     </div>
   );
 };`;
-
-  // Installation instructions
-  const installation = `# Using npm
-npm install image-sequence-animator
-
-# Using yarn
-yarn add image-sequence-animator
-
-# Using pnpm
-pnpm add image-sequence-animator`;
 
   // README content
   const readmeContent = `
@@ -113,7 +114,7 @@ or frame-by-frame animations.
         <div className="badges">
           <img src="https://img.shields.io/npm/v/image-sequence-animator.svg" alt="npm version" />
           <img src="https://img.shields.io/npm/dm/image-sequence-animator.svg" alt="downloads" />
-          <img src="https://img.shields.io/github/license/luongnv89/image-sequence-animator" alt="license" />
+          <img src="https://img.shields.io/github/license/buildwizai/image-sequence-animator" alt="license" />
         </div>
       </header>
 
@@ -162,9 +163,53 @@ or frame-by-frame animations.
           <section className="installation-section">
             <h2>Installation</h2>
             <p>Add Image Sequence Animator to your React project:</p>
-            <SyntaxHighlighter language="bash" style={docco}>
-              {installation}
-            </SyntaxHighlighter>
+
+            <div className="install-commands">
+              <div className="install-command-block">
+                <div className="command-header">
+                  <span>npm</span>
+                  <button
+                    className={`copy-button ${copiedText === npmInstall ? 'copied' : ''}`}
+                    onClick={() => handleCopy(npmInstall)}
+                  >
+                    {copiedText === npmInstall ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <SyntaxHighlighter language="bash" style={docco}>
+                  {npmInstall}
+                </SyntaxHighlighter>
+              </div>
+
+              <div className="install-command-block">
+                <div className="command-header">
+                  <span>yarn</span>
+                  <button
+                    className={`copy-button ${copiedText === yarnInstall ? 'copied' : ''}`}
+                    onClick={() => handleCopy(yarnInstall)}
+                  >
+                    {copiedText === yarnInstall ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <SyntaxHighlighter language="bash" style={docco}>
+                  {yarnInstall}
+                </SyntaxHighlighter>
+              </div>
+
+              <div className="install-command-block">
+                <div className="command-header">
+                  <span>pnpm</span>
+                  <button
+                    className={`copy-button ${copiedText === pnpmInstall ? 'copied' : ''}`}
+                    onClick={() => handleCopy(pnpmInstall)}
+                  >
+                    {copiedText === pnpmInstall ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <SyntaxHighlighter language="bash" style={docco}>
+                  {pnpmInstall}
+                </SyntaxHighlighter>
+              </div>
+            </div>
 
             <h3>Requirements</h3>
             <ul>
@@ -239,17 +284,39 @@ or frame-by-frame animations.
             <div className="example">
               <h3>Basic Example</h3>
               <p>A simple implementation with minimal configuration:</p>
-              <SyntaxHighlighter language="jsx" style={docco}>
-                {basicExample}
-              </SyntaxHighlighter>
+              <div className="code-block-container">
+                <div className="command-header">
+                  <span>React Component</span>
+                  <button
+                    className={`copy-button ${copiedText === basicExample ? 'copied' : ''}`}
+                    onClick={() => handleCopy(basicExample)}
+                  >
+                    {copiedText === basicExample ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <SyntaxHighlighter language="jsx" style={docco}>
+                  {basicExample}
+                </SyntaxHighlighter>
+              </div>
             </div>
 
             <div className="example">
               <h3>Advanced Example</h3>
               <p>Product 360° viewer with custom styling and extended controls:</p>
-              <SyntaxHighlighter language="jsx" style={docco}>
-                {advancedExample}
-              </SyntaxHighlighter>
+              <div className="code-block-container">
+                <div className="command-header">
+                  <span>React Component</span>
+                  <button
+                    className={`copy-button ${copiedText === advancedExample ? 'copied' : ''}`}
+                    onClick={() => handleCopy(advancedExample)}
+                  >
+                    {copiedText === advancedExample ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <SyntaxHighlighter language="jsx" style={docco}>
+                  {advancedExample}
+                </SyntaxHighlighter>
+              </div>
             </div>
           </section>
         )}
@@ -257,7 +324,7 @@ or frame-by-frame animations.
 
       <footer>
         <p>
-          <a href="https://github.com/luongnv89/image-sequence-animator" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/buildwizai/image-sequence-animator" target="_blank" rel="noopener noreferrer">
             GitHub Repository
           </a> |
           <a href="https://www.npmjs.com/package/image-sequence-animator" target="_blank" rel="noopener noreferrer">
@@ -407,6 +474,64 @@ or frame-by-frame animations.
           font-size: 0.9rem;
           color: #777;
         }
+
+        /* New styles for installation section */
+        .install-commands {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin: 1.5rem 0;
+        }
+
+        .install-command-block {
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        .command-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #f5f5f5;
+          padding: 0.5rem 1rem;
+          border-bottom: 1px solid var(--border-color);
+          font-weight: 500;
+        }
+
+        .copy-button {
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 0.3rem 0.7rem;
+          font-size: 0.85rem;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+
+        .copy-button:hover {
+          background-color: #2980b9;
+        }
+
+        .copy-button.copied {
+          background-color: var(--secondary-color);
+        }
+
+        .install-command-block pre {
+          margin: 0 !important;
+          border-radius: 0 !important;
+        }
+
+        /* Styles for code examples */
+        .code-block-container {
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          overflow: hidden;
+          margin: 1.5rem 0;
+        }
+
+        /* Reuse the command-header and copy-button styles from installation section */
       `}</style>
     </div>
   )
