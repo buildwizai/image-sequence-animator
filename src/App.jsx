@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-import { marked } from 'marked';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useState } from 'react';
 import ImageSequenceAnimator from './ImageSequenceAnimator';
+import CodeHighlighter from './utils/syntaxHighlighter.jsx';
 import logoSvg from './assets/logo/logo.svg';
 import iconSvg from './assets/logo/icon.svg';
 
@@ -16,15 +14,6 @@ function App() {
     setCopiedText(text);
     setTimeout(() => setCopiedText(''), 2000);
   };
-
-  // Configure marked options for better rendering
-  useEffect(() => {
-    marked.setOptions({
-      breaks: true,
-      gfm: true,
-      headerIds: true
-    });
-  }, []);
 
   // Sample images for demo
   const imgURLs = Array.from(
@@ -137,34 +126,6 @@ function MyComponent() {
   }}
 />`;
 
-  // README content - removed the code block since we'll display it separately
-  const readmeContent = `
-# Image Sequence Animator
-
-A lightweight React component for animating a sequence of images with playback controls,
-mimicking a video-like experience. Ideal for product showcases, interactive tutorials,
-or frame-by-frame animations.
-
-## Features
-
-- Sequential image playback based on a list of URLs
-- Configurable frame rate
-- Optional looping
-- Playback controls: Play/Pause, Speed selection, Previous/Next frame navigation
-- Image preloading with loading state display
-- Keyboard navigation support (Space/k for play/pause, Left/j for previous, Right/l for next)
-- Built with TypeScript
-
-## Usage
-
-Below is a basic implementation example:
-
-## Browser Support
-
-- Chrome, Firefox, Safari, and Edge
-- IE 11 (with appropriate polyfills)
-`;
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 font-sans text-gray-800">
       <header className="text-center mb-8">
@@ -260,9 +221,9 @@ Below is a basic implementation example:
                     {copiedText === npmInstall ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <SyntaxHighlighter language="bash" style={docco} className="m-0 rounded-none">
+                <CodeHighlighter language="bash" className="m-0 rounded-none">
                   {npmInstall}
-                </SyntaxHighlighter>
+                </CodeHighlighter>
               </div>
 
               <div className="border border-gray-200 rounded-lg overflow-hidden">
@@ -275,9 +236,9 @@ Below is a basic implementation example:
                     {copiedText === yarnInstall ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <SyntaxHighlighter language="bash" style={docco} className="m-0 rounded-none">
+                <CodeHighlighter language="bash" className="m-0 rounded-none">
                   {yarnInstall}
-                </SyntaxHighlighter>
+                </CodeHighlighter>
               </div>
 
               <div className="border border-gray-200 rounded-lg overflow-hidden">
@@ -290,9 +251,9 @@ Below is a basic implementation example:
                     {copiedText === pnpmInstall ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <SyntaxHighlighter language="bash" style={docco} className="m-0 rounded-none">
+                <CodeHighlighter language="bash" className="m-0 rounded-none">
                   {pnpmInstall}
-                </SyntaxHighlighter>
+                </CodeHighlighter>
               </div>
             </div>
 
@@ -335,10 +296,31 @@ Below is a basic implementation example:
               {/* Documentation Content */}
               <div className="flex-1">
                 {/* Using custom CSS classes to style the rendered markdown */}
-                <div
-                  className="markdown-content prose prose-blue max-w-none"
-                  dangerouslySetInnerHTML={{ __html: marked.parse(readmeContent) }}
-                />
+                <div className="markdown-content prose prose-blue max-w-none">
+                  <h1 id="overview">Image Sequence Animator</h1>
+                  <p>
+                    A lightweight React component for animating a sequence of images with playback controls,
+                    mimicking a video-like experience. Ideal for product showcases, interactive tutorials,
+                    or frame-by-frame animations.
+                  </p>
+                  <h2 id="features">Features</h2>
+                  <ul>
+                    <li>Sequential image playback based on a list of URLs</li>
+                    <li>Configurable frame rate</li>
+                    <li>Optional looping</li>
+                    <li>Playback controls: Play/Pause, Speed selection, Previous/Next frame navigation</li>
+                    <li>Image preloading with loading state display</li>
+                    <li>Keyboard navigation support (Space/k for play/pause, Left/j for previous, Right/l for next)</li>
+                    <li>Built with TypeScript</li>
+                  </ul>
+                  <h2 id="usage">Usage</h2>
+                  <p>Below is a basic implementation example:</p>
+                  <h2 id="browser-support">Browser Support</h2>
+                  <ul>
+                    <li>Chrome, Firefox, Safari, and Edge</li>
+                    <li>IE 11 (with appropriate polyfills)</li>
+                  </ul>
+                </div>
 
                 {/* Usage Example with Copy Button - inserted after the Usage section */}
                 <div id="usage-example" className="border border-gray-200 rounded-lg overflow-hidden mb-12 mt-4">
@@ -351,9 +333,9 @@ Below is a basic implementation example:
                       {copiedText === usageExample ? 'Copied!' : 'Copy'}
                     </button>
                   </div>
-                  <SyntaxHighlighter language="jsx" style={docco} className="m-0 rounded-none">
+                  <CodeHighlighter language="javascript" className="m-0 rounded-none">
                     {usageExample}
-                  </SyntaxHighlighter>
+                  </CodeHighlighter>
                 </div>
 
                 <h2 id="props" className="text-2xl font-bold mt-12 mb-4 pb-2 border-b border-gray-200">Props Reference</h2>
@@ -432,9 +414,9 @@ Below is a basic implementation example:
                           {copiedText === eventHandlingExample ? 'Copied!' : 'Copy'}
                         </button>
                       </div>
-                      <SyntaxHighlighter language="jsx" style={docco} className="m-0 rounded-none">
+                      <CodeHighlighter language="javascript" className="m-0 rounded-none">
                         {eventHandlingExample}
-                      </SyntaxHighlighter>
+                      </CodeHighlighter>
                     </div>
                   </div>
 
@@ -451,9 +433,9 @@ Below is a basic implementation example:
                           {copiedText === customizingControlsExample ? 'Copied!' : 'Copy'}
                         </button>
                       </div>
-                      <SyntaxHighlighter language="jsx" style={docco} className="m-0 rounded-none">
+                      <CodeHighlighter language="javascript" className="m-0 rounded-none">
                         {customizingControlsExample}
-                      </SyntaxHighlighter>
+                      </CodeHighlighter>
                     </div>
                   </div>
                 </div>
@@ -498,9 +480,9 @@ Below is a basic implementation example:
                     {copiedText === basicExample ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <SyntaxHighlighter language="jsx" style={docco} className="m-0 rounded-none">
+                <CodeHighlighter language="jsx" className="m-0 rounded-none">
                   {basicExample}
-                </SyntaxHighlighter>
+                </CodeHighlighter>
               </div>
             </div>
 
@@ -517,9 +499,9 @@ Below is a basic implementation example:
                     {copiedText === advancedExample ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
-                <SyntaxHighlighter language="jsx" style={docco} className="m-0 rounded-none">
+                <CodeHighlighter language="jsx" className="m-0 rounded-none">
                   {advancedExample}
-                </SyntaxHighlighter>
+                </CodeHighlighter>
               </div>
             </div>
           </section>

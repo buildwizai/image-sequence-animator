@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+/* Syntax highlighting styles */
+.code-highlighter {
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.code-highlighter code {
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Syntax colors inspired by VS Code light theme */
+.code-keyword {
+  color: #0000ff; /* blue */
+  font-weight: bold;
+}
+
+.code-string {
+  color: #a31515; /* dark red */
+}
+
+.code-comment {
+  color: #008000; /* green */
+  font-style: italic;
+}
+
+.code-function {
+  color: #795e26; /* brown */
+}
+
+.code-number {
+  color: #098658; /* teal */
+}
+
+.code-jsx {
+  color: #800000; /* maroon */
+}
+
+.code-bracket {
+  color: #000000; /* black */
+}
