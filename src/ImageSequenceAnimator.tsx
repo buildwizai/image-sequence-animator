@@ -14,6 +14,8 @@ export interface ImageSequenceAnimatorProps { // Add export
   style?: React.CSSProperties;
   /** Array of available playback speeds (default: [0.5, 1, 2]) */
   playbackSpeeds?: number[];
+  /** Whether to display the filename of the current image (default: false) */
+  showFilename?: boolean;
 }
 
 const defaultPlaybackSpeeds = [0.5, 1, 2];
@@ -25,6 +27,7 @@ const ImageSequenceAnimator: React.FC<ImageSequenceAnimatorProps> = ({
   className,
   style,
   playbackSpeeds = defaultPlaybackSpeeds, // Use default speeds if not provided
+  showFilename = false, // Default to not showing filename
 }) => {
   const { isLoading, loadedCount, totalCount, errorCount, errors } = useImagePreloader(imageUrls);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
@@ -281,6 +284,12 @@ const ImageSequenceAnimator: React.FC<ImageSequenceAnimatorProps> = ({
       {errorCount > 0 && (
         <div style={{ color: 'orange', fontSize: '0.8em', marginTop: '0.5rem' }} role="alert"> {/* Add role="alert" */}
           Warning: {errorCount} image(s) failed to load and will be skipped.
+        </div>
+      )}
+      {/* --- Filename Display --- */}
+      {showFilename && currentImageUrl && (
+        <div style={{ marginTop: '0.5rem', fontSize: '0.9em', color: '#555' }}>
+          Filename: {currentImageUrl.split('/').pop()}
         </div>
       )}
     </div>

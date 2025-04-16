@@ -36,7 +36,7 @@ function App() {
   const demoConfigs = [
     { frameRate: 5, loop: true, title: 'Standard Animation (5 FPS)' },
     { frameRate: 15, loop: true, title: 'Faster Animation (15 FPS)' },
-    { frameRate: 3, loop: false, title: 'Slow Animation, No Loop (3 FPS)' }
+    { frameRate: 3, loop: false, showFilename: true, title: 'Slow Animation with Filename (3 FPS)' }
   ];
 
   // Installation commands
@@ -226,6 +226,7 @@ Below is a basic implementation example:
                     imageUrls={imgURLs}
                     frameRate={config.frameRate}
                     loop={config.loop}
+                    showFilename={config.showFilename}
                     style={{
                       maxWidth: '100%',
                       border: '1px solid #eee',
@@ -403,6 +404,12 @@ Below is a basic implementation example:
                           <td className="px-4 py-3 text-sm"><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">React.CSSProperties</code></td>
                           <td className="px-4 py-3 text-sm"><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">undefined</code></td>
                           <td className="px-4 py-3 text-sm">Optional inline styles for the container element</td>
+                        </tr>
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3"><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">showFilename</code></td>
+                          <td className="px-4 py-3 text-sm"><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">boolean</code></td>
+                          <td className="px-4 py-3 text-sm"><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">false</code></td>
+                          <td className="px-4 py-3 text-sm">Whether to display the filename of the current image</td>
                         </tr>
                       </tbody>
                     </table>
