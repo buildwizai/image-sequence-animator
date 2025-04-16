@@ -1,6 +1,6 @@
 {
   "name": "image-sequence-animator",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A React component to animate a sequence of images like a video.",
   "type": "module",
   "main": "./dist/image-sequence-animator.cjs.js",
