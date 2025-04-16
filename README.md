@@ -49,6 +49,7 @@ const MyComponent = () => {
         frameRate={24} // Optional: default is 30
         loop={true} // Optional: default is true
         playbackSpeeds={[0.5, 1, 1.5, 2]} // Optional: default is [0.5, 1, 2]
+        showFilename={true} // Optional: default is false
         style={{ border: '1px solid #ccc', maxWidth: '600px', margin: 'auto' }} // Optional styling
       />
     </div>
@@ -91,15 +92,15 @@ const MyComponent = () => {
 | `playbackSpeeds` | `number[]`             | `[0.5, 1, 2]` | Array of available playback speed multipliers for controls. |
 | `className`      | `string`               | `undefined`   | Optional CSS class name for the main container `div`.       |
 | `style`          | `React.CSSProperties`  | `undefined`   | Optional inline styles for the main container `div`.        |
+| `showFilename`   | `boolean`              | `false`       | Whether to display the filename of the current image.       |
 
 ## Development
 
 1.  Clone the repository.
 2.  Install dependencies: `npm install`
 3.  Start the development server (if applicable, e.g., for a demo page): `npm run dev`
-4.  Run Storybook: `npm run storybook`
-5.  Run tests: `npm run test`
-6.  Build the library: `npm run build`
+4.  Run tests: `npm run test`
+5.  Build the library: `npm run build`
 
 ## Contributing
 
