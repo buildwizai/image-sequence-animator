@@ -27,7 +27,7 @@ const tokenize = (code) => {
     comment: /^(\/\/.*$)|(\/\*[\s\S]*?\*\/)/m,
     number: /^-?\d+(\.\d+)?/,
     jsx: /^<\/?[a-zA-Z][a-zA-Z0-9]*/,
-    bracket: /^[{}()\[\]]/,
+    bracket: /^[{}()[\]]/,
     identifier: /^[a-zA-Z_$][a-zA-Z0-9_$]*/,
     operator: /^[+\-*/%=<>!&|^~?:;.]+/,
     other: /^./,
