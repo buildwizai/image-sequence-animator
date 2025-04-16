@@ -101,30 +101,6 @@ const MyComponent = () => {
 5.  Run tests: `npm run test`
 6.  Build the library: `npm run build`
 
-## GitHub Pages Demo
-
-This library includes support for automatically deploying a demo page to GitHub Pages. The demo page will showcase the component in action.
-
-### Local Development
-
-To build the GitHub Pages demo locally:
-
-```bash
-npm run build:github
-```
-
-This will create a build in the `dist` directory that's configured for GitHub Pages hosting.
-
-### Automatic Deployment
-
-The GitHub Actions workflow is set up to automatically deploy the demo to GitHub Pages whenever changes are pushed to the main branch. The demo will be available at:
-
-```
-https://[buildwizai].github.io/image-sequence-animator/
-```
-
-Make sure to enable GitHub Pages in your repository settings and set the source to the `gh-pages` branch.
-
 ## Contributing
 
 Contributions are welcome! Please refer to `CONTRIBUTING.md` for guidelines.
