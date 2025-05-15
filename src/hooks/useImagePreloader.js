@@ -1,23 +1,15 @@
 import { useState, useEffect } from 'react';
 
-interface PreloaderState {
-  isLoading: boolean;
-  loadedCount: number;
-  totalCount: number;
-  errorCount: number;
-  errors: string[]; // Store URLs that failed to load
-}
-
 /**
  * Custom hook to preload a list of image URLs.
- * @param imageUrls - Array of image URLs to preload.
- * @returns State object containing loading status, progress, and errors.
+ * @param {string[]} imageUrls - Array of image URLs to preload.
+ * @returns {Object} State object containing loading status, progress, and errors.
  */
-const useImagePreloader = (imageUrls: string[]): PreloaderState => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [loadedCount, setLoadedCount] = useState<number>(0);
-  const [errorCount, setErrorCount] = useState<number>(0);
-  const [errors, setErrors] = useState<string[]>([]);
+const useImagePreloader = (imageUrls) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedCount, setLoadedCount] = useState(0);
+  const [errorCount, setErrorCount] = useState(0);
+  const [errors, setErrors] = useState([]);
   const totalCount = imageUrls.length;
 
   useEffect(() => {
@@ -34,7 +26,7 @@ const useImagePreloader = (imageUrls: string[]): PreloaderState => {
 
     let currentLoaded = 0;
     let currentErrors = 0;
-    const currentErrorUrls: string[] = [];
+    const currentErrorUrls = [];
 
     imageUrls.forEach((url) => {
       const img = new Image();
@@ -71,7 +63,7 @@ const useImagePreloader = (imageUrls: string[]): PreloaderState => {
       }
     };
 
-    // Initial check in case the array was empty or all images load/error synchronously (unlikely but safe)
+    // Initial check in case the array was empty or all images load/error synchronously
     checkCompletion();
 
   }, [imageUrls, totalCount]); // Rerun effect if imageUrls array reference changes

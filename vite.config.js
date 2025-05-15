@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
         outDir: 'dist',
       } : {
         lib: {
-          entry: path.resolve(__dirname, 'src/ImageSequenceAnimator.tsx'), // Assuming this will be the main component export
+          entry: path.resolve(__dirname, 'src/ImageSequenceAnimator.jsx'), // Main component export
           name: 'ImageSequenceAnimator', // Global variable name for UMD build
           formats: ['es', 'cjs'], // Output formats: ES Module and CommonJS
           fileName: (format) => `image-sequence-animator.${format}.js`,
