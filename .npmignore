@@ -1,0 +1,40 @@
+# Source files
+src/
+public/
+docs/
+
+# Config files
+.github/
+.vscode/
+.idea/
+*.config.js
+*.config.cjs
+.eslintrc*
+.prettierrc*
+.babelrc*
+vite.config.js
+jest.config.cjs
+
+# Development files
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+*.stories.jsx
+storybook/
+.storybook/
+
+# Git files
+.git/
+.gitignore
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Other
+.DS_Store
+*.local
