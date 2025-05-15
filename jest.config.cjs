@@ -1,25 +1,15 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom'], // Setup jest-dom matchers
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   moduleNameMapper: {
-    // Handle CSS imports (if any) - adjust if using CSS Modules or other CSS solutions
+    // Handle CSS imports
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     // Handle image imports
-    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js', // Mock file imports
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
   transform: {
-    // Use ts-jest for ts/tsx files
-    '^.+\\.tsx?$': [
-      'ts-jest',
-      {
-        tsconfig: 'tsconfig.json', // Specify the tsconfig file
-      },
-    ],
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
-  // Optional: Collect coverage
-  // collectCoverage: true,
-  // coverageDirectory: "coverage",
-  // coverageProvider: "v8", // or "babel"
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
 };
